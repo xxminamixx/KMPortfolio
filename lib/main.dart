@@ -1,4 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:km_portfolio/Utility/Const.dart';
+import 'package:km_portfolio/View/CarrerWidget/CareerWidget.dart';
+import 'package:km_portfolio/View/ContactWidget.dart';
+import 'package:km_portfolio/View/HomeWidget.dart';
+import 'package:km_portfolio/View/ProfileWidget.dart';
+import 'package:km_portfolio/View/SkillsWidget.dart';
+import 'package:km_portfolio/View/WorksWidget.dart';
 
 void main() {
   runApp(MKPortfolio());
@@ -8,59 +15,20 @@ class MKPortfolio extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Minami\'s Portfolio',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomeWidget(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class HomeWidget extends StatefulWidget {
-  HomeWidget({Key key, this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _HomeWidget createState() => _HomeWidget();
-}
-
-class _HomeWidget extends State<HomeWidget> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
+      initialRoute: Const.route.root,
+      routes: <String, WidgetBuilder>{
+        Const.route.root: (BuildContext context) => HomeWidget(),
+        Const.route.profile: (BuildContext context) => ProfileWidget(),
+        Const.route.career: (BuildContext context) => CareerWidget.instance(),
+        Const.route.works: (BuildContext context) =>  WorksWidget(),
+        Const.route.skills: (BuildContext context) =>  SkillsWidget(),
+        Const.route.contact: (BuildContext context) =>  ContactWidget(),
+        }
     );
   }
 }
