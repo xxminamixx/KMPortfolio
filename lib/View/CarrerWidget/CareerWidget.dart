@@ -90,7 +90,7 @@ class CareerWidget extends StatelessWidget {
                 teamSize: 'なし',
                 description: '情報デザインを専攻しUI/UXの基礎を学習。Illustratorを利用し UX Map/Infographics/Pictogram の制作も行った',
                 skills: [
-                  'Processing' 'Java', 'C', 'HTML', 'CSS', 'javascript' 'Illustrator' , 'Blender',
+                  'Processing', 'Java', 'C', 'HTML', 'CSS', 'javascript', 'Illustrator' , 'Blender',
                 ]
             )
           ],
