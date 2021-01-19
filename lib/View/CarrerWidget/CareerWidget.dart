@@ -5,6 +5,7 @@ import 'package:km_portfolio/Utility/Screen.dart';
 import 'package:km_portfolio/View/CarrerWidget/CareerBloc.dart';
 import 'package:km_portfolio/View/CarrerWidget/CareerBlocProvider.dart';
 
+// ignore: must_be_immutable
 class CareerWidget extends StatelessWidget {
 
   CareerBloc _bloc;
