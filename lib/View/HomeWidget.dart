@@ -16,7 +16,7 @@ class HomeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Screen(context);
-
+    print('hoge');
     return Scaffold(
       body: Center(
         child: Column(
