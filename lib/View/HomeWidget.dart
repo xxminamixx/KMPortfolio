@@ -7,6 +7,7 @@ import 'package:km_portfolio/Utility/Screen.dart';
 import 'package:km_portfolio/Utility/URLLauncher.dart';
 import 'package:km_portfolio/View/CarrerWidget/CareerWidget.dart';
 import 'package:km_portfolio/View/ProfileWidget.dart';
+import 'package:km_portfolio/View/WorksWidget.dart';
 
 class HomeWidget extends StatelessWidget {
   const HomeWidget({Key? key}) : super(key: key);
@@ -58,7 +59,7 @@ class HomeWidget extends StatelessWidget {
                     onTapped: () {
                       push(context, CareerWidget.instance(), route.career);
                     }),
-                // KMTextButton(text: 'Works', onTapped: () { push(context, WorksWidget(), Const.route.works); }),
+                KMTextButton(text: 'Works', onTapped: () { push(context, const WorksWidget(), route.works); }),
                 // KMTextButton(text: 'Skills', onTapped: () { push(context, SkillsWidget(), Const.route.skills); }),
                 // KMTextButton(text: 'Contact', onTapped: () { push(context, ContactWidget(), Const.route.contact); }),
               ],

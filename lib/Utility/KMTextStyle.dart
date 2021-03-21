@@ -16,15 +16,32 @@ class KMTextStyle {
     );
   }
 
+  static TextStyle chango({
+    required double size,
+    Color color = Colors.grey,
+    bool isBold = false,
+    double lineHeight = 2.0
+  }) {
+    return GoogleFonts.chango(
+        textStyle: TextStyle(
+            fontSize: size,
+            color: color,
+            fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
+            height: lineHeight
+        )
+    );
+  }
+
   static TextStyle lato({
-    @required double? size,
+    required double size,
+    Color color = Colors.grey,
     bool isBold = false,
     double lineHeight = 2.0
   }) {
     return GoogleFonts.lato(
       textStyle: TextStyle(
         fontSize: size,
-        color: Colors.grey,
+        color: color,
         fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
         height: lineHeight
       )
