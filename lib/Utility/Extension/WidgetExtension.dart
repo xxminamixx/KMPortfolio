@@ -6,12 +6,12 @@ extension WidgetExtension on Widget {
   // MARK: Navigation
 
   void popRoot(BuildContext context) {
-    Navigator.popUntil(context, ModalRoute.withName(Const.route.root));
+    Navigator.popUntil(context, ModalRoute.withName(route.root));
   }
 
   void push(BuildContext context, Widget widget, [String routeName = '']) {
-    Navigator.of(context).push(
-        MaterialPageRoute(
+    Navigator.of(context).push<void>(
+        MaterialPageRoute<void>(
           settings: RouteSettings(name: routeName),
           builder: (BuildContext context) => widget
         )

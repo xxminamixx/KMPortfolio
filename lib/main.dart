@@ -8,10 +8,13 @@ import 'package:km_portfolio/View/SkillsWidget.dart';
 import 'package:km_portfolio/View/WorksWidget.dart';
 
 void main() {
-  runApp(MKPortfolio());
+  runApp(const MKPortfolio());
 }
 
 class MKPortfolio extends StatelessWidget {
+
+  const MKPortfolio({Key? key}) :super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,14 +23,14 @@ class MKPortfolio extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: Const.route.root,
+      initialRoute: route.root,
       routes: <String, WidgetBuilder>{
-        Const.route.root: (BuildContext context) => HomeWidget(),
-        Const.route.profile: (BuildContext context) => ProfileWidget(),
-        Const.route.career: (BuildContext context) => CareerWidget.instance(),
-        Const.route.works: (BuildContext context) =>  WorksWidget(),
-        Const.route.skills: (BuildContext context) =>  SkillsWidget(),
-        Const.route.contact: (BuildContext context) =>  ContactWidget(),
+        route.root: (BuildContext context) => const HomeWidget(),
+        route.profile: (BuildContext context) => const ProfileWidget(),
+        route.career: (BuildContext context) => CareerWidget.instance(),
+        route.works: (BuildContext context) => const WorksWidget(),
+        route.skills: (BuildContext context) => const SkillsWidget(),
+        route.contact: (BuildContext context) => const ContactWidget(),
         }
     );
   }

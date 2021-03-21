@@ -3,6 +3,9 @@ import 'package:km_portfolio/Utility/Const.dart';
 import 'package:km_portfolio/Utility/KMTextStyle.dart';
 
 class ProfileWidget extends StatelessWidget {
+
+  const ProfileWidget({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return _mainWidget();
@@ -10,86 +13,80 @@ class ProfileWidget extends StatelessWidget {
 
   Widget _mainWidget() {
     return Scaffold(
-      body: Container(
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
           child: Container(
-            margin: EdgeInsets.all(64),
+            margin: const EdgeInsets.all(64),
             child: Center(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: <Widget> [
                   Container(
-                    margin: EdgeInsets.only(bottom: 64),
+                    margin: const EdgeInsets.only(bottom: 64),
                     child: Text('Profile',
                       style: KMTextStyle.notoSerif(size: 36),
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(bottom: 16),
+                    margin: const EdgeInsets.only(bottom: 16),
                     child: Container(
                       width: 100,
                       height: 100,
                       child: ClipOval(
-                        child: Image.asset('assets/images/icon.png')
+                          child: Image.asset('assets/images/icon.png')
                       ),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50.0),
-                        boxShadow: [
+                        boxShadow: <BoxShadow> [
                           BoxShadow(
                             color: Colors.grey.withOpacity(0.5),
                             spreadRadius: 0,
                             blurRadius: 4,
-                            offset: Offset(0, 2),
+                            offset: const Offset(0, 2),
                           ),
                         ],
                       ),
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(bottom: 16),
-                    child: Wrap(
-                      direction: Axis.vertical,
-                      spacing: 8,
-                      children: [
-                        _pairedText(title: '名前', content: '南 京兵 (みなみ きょうへい)'),
-                        _pairedText(title: '居住', content: '東京都 / 神奈川県'),
-                        _pairedText(title: '趣味', content: 'ゲーム / アニメ / 美味しいものを食べる'),
-                      ],
-                    )
+                      margin: const EdgeInsets.only(bottom: 16),
+                      child: Wrap(
+                        direction: Axis.vertical,
+                        spacing: 8,
+                        children: <Widget> [
+                          _pairedText(title: '名前', content: '南 京兵 (みなみ きょうへい)'),
+                          _pairedText(title: '居住', content: '東京都 / 神奈川県'),
+                          _pairedText(title: '趣味', content: 'ゲーム / アニメ / 美味しいものを食べる'),
+                        ],
+                      )
+                  ),
+                  Text(profileCareer,
+                    style: KMTextStyle.lato(size: 14),
                   ),
                   Container(
-                    child: Text(Const.profileCareer,
-                      style: KMTextStyle.lato(size: 14),
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(bottom: 16),
+                    margin: const  EdgeInsets.only(bottom: 16),
                     child: Text('---',
                       style: KMTextStyle.lato(size: 14),
                     ),
                   ),
                   Container(
-                      margin: EdgeInsets.only(bottom: 16),
+                      margin: const EdgeInsets.only(bottom: 16),
                       child: Wrap(
                         direction: Axis.vertical,
                         spacing: 8,
-                        children: [
+                        children: <Widget> [
                           _pairedText(title: 'Name', content: 'Minami Kyohei'),
                           _pairedText(title: 'Residence', content: 'Tokyo / Kanagawa'),
                           _pairedText(title: 'hobby', content: 'Game / Anime / Eat delicious food'),
                         ],
                       )
                   ),
-                  Container(
-                    child: Text(Const.profileCareerEn,
-                      style: KMTextStyle.lato(size: 14),
-                    ),
-                  )
+                  Text(profileCareerEn,
+                    style: KMTextStyle.lato(size: 14),
+                  ),
                 ],
               ),
             ),
-          )
-        ),
+          ),
       ),
     );
   }
@@ -101,7 +98,7 @@ class ProfileWidget extends StatelessWidget {
     return Wrap(
       direction: Axis.horizontal,
       spacing: 16,
-      children: [
+      children: <Widget> [
         Text(title ?? '',
           style: KMTextStyle.lato(size: 14, isBold: true),
         ),
