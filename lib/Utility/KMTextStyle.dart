@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 class KMTextStyle {
 
   static TextStyle notoSerif({
-    @required double size,
+    @required double? size,
     bool isBold = false,
   }) {
     return GoogleFonts.notoSerif(
@@ -17,7 +17,7 @@ class KMTextStyle {
   }
 
   static TextStyle lato({
-    @required double size,
+    @required double? size,
     bool isBold = false,
     double lineHeight = 2.0
   }) {

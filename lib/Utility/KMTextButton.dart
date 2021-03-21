@@ -3,12 +3,12 @@ import 'package:km_portfolio/Utility/KMTextStyle.dart';
 
 class KMTextButton extends StatelessWidget {
 
-  final String text;
-  final Function onTapped;
-  final double fontSize;
+  final String? text;
+  final Function? onTapped;
+  final double? fontSize;
 
   KMTextButton({
-    Key key,
+    Key? key,
     @required this.text,
     @required this.onTapped,
     this.fontSize,
@@ -16,9 +16,15 @@ class KMTextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
-      onPressed: () { onTapped(); },
-      child: Text(text,
+    return TextButton(
+      onPressed: () {
+        if (onTapped == null) {
+          return;
+        }
+
+        onTapped!();
+      },
+      child: Text(text ?? '',
         style: KMTextStyle.notoSerif(size: 18)
       ),
     );

@@ -95,17 +95,17 @@ class ProfileWidget extends StatelessWidget {
   }
 
   Widget _pairedText({
-    @required String title,
-    @required String content,
+    @required String? title,
+    @required String? content,
   }) {
     return Wrap(
       direction: Axis.horizontal,
       spacing: 16,
       children: [
-        Text(title,
+        Text(title ?? '',
           style: KMTextStyle.lato(size: 14, isBold: true),
         ),
-        Text(content,
+        Text(content ?? '',
           style: KMTextStyle.lato(size: 14),
         ),
       ],

@@ -62,8 +62,8 @@ class HomeWidget extends StatelessWidget {
   }
 
   Widget linkButton({
-    @required String text,
-    @required String url
+    @required String? text,
+    @required String? url
   }) {
     return Container(
       child: Column(
@@ -79,11 +79,15 @@ class HomeWidget extends StatelessWidget {
                   size: 28,
                 ),
                 tooltip: text,
-                onPressed: () { URLLauncher.open(url); },
+                onPressed: () {
+                  if (url == null)
+                    return;
+                  URLLauncher.open(url);
+                },
               ),
             ),
           ),
-          Text(text,
+          Text(text ?? '',
             style: KMTextStyle.notoSerif(size: 12),
           )
         ],

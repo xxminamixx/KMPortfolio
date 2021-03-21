@@ -8,17 +8,17 @@ import 'package:km_portfolio/View/CarrerWidget/CareerBlocProvider.dart';
 // ignore: must_be_immutable
 class CareerWidget extends StatelessWidget {
 
-  CareerBloc _bloc;
+  CareerBloc? _bloc;
 
   static CareerBlocProvider instance() {
     return CareerBlocProvider(
-      child: CareerWidget(),
+      CareerWidget(),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    _bloc = CareerBlocProvider.of(context).bloc;
+    _bloc = CareerBlocProvider.of(context)?.bloc;
 
     return _mainWidget();
   }
@@ -28,7 +28,7 @@ class CareerWidget extends StatelessWidget {
       body: Container(
         child: SingleChildScrollView(
             child: Container(
-                width: Screen.size.width,
+                width: Screen.size?.width,
                 margin: EdgeInsets.all(16),
                 child: Column(
                   children: [
@@ -49,11 +49,11 @@ class CareerWidget extends StatelessWidget {
   Widget _stepper() {
     return Container(
       child: StreamBuilder(
-        stream: _bloc.stepperStream,
+        stream: _bloc?.stepperStream,
         builder: (context, snapshot) {
           return Stepper(
             physics: ClampingScrollPhysics(),
-            controlsBuilder: (BuildContext context, {VoidCallback onStepContinue, VoidCallback onStepCancel}) {
+            controlsBuilder: (BuildContext context, {VoidCallback? onStepContinue, VoidCallback? onStepCancel}) {
               return Row(
                 children: <Widget>[
                   Container(
@@ -65,10 +65,10 @@ class CareerWidget extends StatelessWidget {
                 ],
               );
             },
-            currentStep: snapshot.hasData ? snapshot.data : 0,
-            onStepTapped: (int step) => _bloc.stepperSink.add(step),
+            currentStep: snapshot.hasData ? snapshot.data as int : 0,
+            onStepTapped: (int step) => _bloc?.stepperSink.add(step),
             type: StepperType.vertical,
-            steps: _steps(snapshot.data ?? 0),
+            steps: _steps(snapshot.data as int),
           );
         },
       )
@@ -166,11 +166,11 @@ class CareerWidget extends StatelessWidget {
   }
 
   Widget _proposition({
-    @required String title,
-    @required String occupation,
-    @required String teamSize,
-    @required String description,
-    @required List<String> skills
+    @required String? title,
+    @required String? occupation,
+    @required String? teamSize,
+    @required String? description,
+    @required List<String>? skills
   }) {
     return Container(
       // width: Screen.size.width,
@@ -180,7 +180,7 @@ class CareerWidget extends StatelessWidget {
         children: [
           Container(
             margin: EdgeInsets.only(bottom: 16),
-            child: Text(title,
+            child: Text(title ?? '',
               style: KMTextStyle.lato(size: 24, isBold: true),
             ),
           ),
@@ -210,18 +210,18 @@ class CareerWidget extends StatelessWidget {
   }
 
   Widget _cell({
-    @required String title,
-    @required String content,
+    @required String? title,
+    @required String? content,
   }) {
     return Container(
       margin: EdgeInsets.only(bottom: 8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(title,
+          Text(title ?? '',
             style: KMTextStyle.lato(size: 14, isBold: true),
           ),
-          Text(content,
+          Text(content ?? '',
             style: KMTextStyle.lato(size: 14),
           )
         ],
@@ -229,8 +229,13 @@ class CareerWidget extends StatelessWidget {
     );
   }
 
-  List<Widget> _chips(List<String> skills) {
-    if (skills?.isEmpty ?? true) return [];
+  List<Widget> _chips(List<String>? skills) {
+    if (skills?.isEmpty ?? true)
+      return [];
+
+    if (skills == null || skills.isEmpty)
+      return [];
+
     return skills.map((skill) => Chip(label: Text(skill))).toList();
   }
 
