@@ -28,12 +28,15 @@ class WorksWidget extends StatelessWidget {
               ),
               Container(
                 constraints: BoxConstraints(
-                    maxWidth: (Screen.size?.width ?? 300) / 2),
+                    maxWidth: _maxWidth(),
+                ),
                 child: GridView.count(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  crossAxisCount: 3,
+                  crossAxisCount: isGreaterThanAreaValue() ? 3 : 2,
                   childAspectRatio: 1.0,
+                  crossAxisSpacing: 32,
+                  mainAxisSpacing: 32,
                   children: <Widget>[
                     _cell(
                         title: '文字数カウンタ',
@@ -66,10 +69,14 @@ class WorksWidget extends StatelessWidget {
       onTap: () => URLLauncher.open(url),
       child: Card(
         elevation: 4,
+        clipBehavior: Clip.antiAliasWithSaveLayer,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
         child: Column(
           children: <Widget>[
             Expanded(
-              flex: 3,
+              flex: 2,
               child: Center(
                 child: Text('No Image',
                   style: KMTextStyle.chango(
@@ -92,7 +99,7 @@ class WorksWidget extends StatelessWidget {
                     Text(title,
                       textAlign: TextAlign.center,
                       style: KMTextStyle.lato(
-                        size: 16,
+                        size: isGreaterThanAreaValue() ? 16 : 10,
                         color: Colors.white,
                         isBold: true,
                       ),
@@ -100,7 +107,7 @@ class WorksWidget extends StatelessWidget {
                     Text(description,
                       textAlign: TextAlign.center,
                       style: KMTextStyle.lato(
-                        size: 10,
+                        size: isGreaterThanAreaValue() ? 10 : 4,
                         color: Colors.white,
                         isBold: true,
                       ),
@@ -113,5 +120,21 @@ class WorksWidget extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  // 800.0 を域値とし画面の横幅が域値を超えているかを返す
+  bool isGreaterThanAreaValue() {
+    if (Screen.size?.width == null)
+      return false;
+
+    return 800.0 < Screen.size!.width;
+  }
+
+  double _maxWidth() {
+    if (isGreaterThanAreaValue()) {
+      return Screen.size!.width / 2;
+    } else {
+      return Screen.size!.width;
+    }
   }
 }
