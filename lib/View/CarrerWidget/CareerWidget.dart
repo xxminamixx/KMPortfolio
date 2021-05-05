@@ -73,8 +73,8 @@ class CareerWidget extends StatelessWidget {
   List<Step> _steps(int index) {
     return <Step>[
       Step(
-          title: const Text('公立はこだて未来大学卒業'),
-          subtitle: const Text('2016年 3月'),
+          title: const Text('公立はこだて未来大学'),
+          subtitle: const Text('2012/04 ~ 2016/03'),
           isActive: index == 0,
           content: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -99,8 +99,8 @@ class CareerWidget extends StatelessWidget {
             ],
           )),
       Step(
-          title: const Text('システムアナライズ株式会社 入社'),
-          subtitle: const Text('2016　年 4月'),
+          title: const Text('システムアナライズ株式会社'),
+          subtitle: const Text('2016/04 ~ 2018/03'),
           isActive: index == 1,
           content: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -120,20 +120,12 @@ class CareerWidget extends StatelessWidget {
                     'Google Analytics'
                   ])
             ],
-          )),
+          ),
+      ),
       Step(
-          title: const Text('システムアナライズ株式会社 退社'),
-          subtitle: const Text('2018　年 3月'),
+          title: const Text('meuron株式会社'),
+          subtitle: const Text('2018/04 ~ 2021/04'),
           isActive: index == 2,
-          content: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: const <Widget>[],
-          )),
-      Step(
-          title: const Text('meuron株式会社 入社'),
-          subtitle: const Text('2018年 4月'),
-          isActive: index == 3,
           content: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -142,8 +134,7 @@ class CareerWidget extends StatelessWidget {
                   title: 'クラフトビール 定期配送サビース iOS/Androidアプリ開発',
                   occupation: 'iOS/Android エンジニア',
                   teamSize: '1人',
-                  description:
-                      'iOS/Android アプリの開発をひとりで担当。設計からリリース・一部デザインまで任させる。\nFlutterでの開発にも挑戦しGoogle Playへの公開経験を積む。',
+                  description: step3Career,
                   skills: <String>[
                     'Swift',
                     'Dart',
@@ -171,9 +162,21 @@ class CareerWidget extends StatelessWidget {
                     'Github',
                     'Bitrise',
                     'Firebase',
-                  ])
+                  ],
+              ),
             ],
-          )),
+          ),
+      ),
+      Step(
+        title: const Text('株式会社サイバーエージェント 入社'),
+        subtitle: const Text('2021/05 ~'),
+        isActive: index == 3,
+        content: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const <Widget>[],
+        ),
+      ),
     ];
   }
 

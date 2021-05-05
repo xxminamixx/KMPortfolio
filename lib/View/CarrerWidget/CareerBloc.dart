@@ -1,23 +1,18 @@
 import 'dart:async';
+import 'package:rxdart/rxdart.dart';
 
 class CareerBloc {
 
   CareerBloc() {
-    _stepperIndexInputController.stream.listen((int index) {
-      currentIndex = index;
-      _stepperIndexOutputController.sink.add(index);
-    });
+    // do something
   }
 
-  int currentIndex = 0;
-
-  final StreamController<int> _stepperIndexInputController = StreamController<int>();
-  final StreamController<int> _stepperIndexOutputController = StreamController<int>();
+  final BehaviorSubject<int> _stepperController = BehaviorSubject<int>.seeded(0);
 
   // input
-  StreamSink<int> get stepperSink => _stepperIndexInputController.sink;
+  StreamSink<int> get stepperSink => _stepperController.sink;
 
   // output
-  Stream<int> get stepperStream => _stepperIndexOutputController.stream;
+  Stream<int> get stepperStream => _stepperController.stream;
 
 }

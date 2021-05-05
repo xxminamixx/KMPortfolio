@@ -23,7 +23,14 @@ After changing jobs, I was assigned to develop iOS / Android apps at once, and K
 const String step2Career =
 '''
 SIerとして大手サービス企業のiOS案件に配属され、Objective-C, Swift での開発基礎を学ぶ。
-iPhone X の発売時期も重なりSafeAreaの対応や、デザイナさんと相談しながらのUI面の実装に多く関わることができた。
+iPhone X の発売時期も重なりStoryboardベースのSafeAreaの対応や、デザイナーさんとコミュニケーションを取りながらUI/UX面の実装に多く携わる。
+''';
+
+const String step3Career =
+'''
+iOS/Android アプリの開発を担当。アプリ開発者が一人であったため、要件定義/設計/デザイン/リリース/分析 を日常的に行い、
+Analyticsの数字から次期施策を創出するサイクルを周した。
+Flutter(Dart)でのプロダクト開発にも挑戦しC向けAndroidアプリのGoogle Play公開経験を積む。
 ''';
 
 class RouteName {

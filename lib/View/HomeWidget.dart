@@ -22,7 +22,7 @@ class HomeWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'I am an iOS / Android engineer',
+              'I am an iOS Native / Flutter Developer',
               style: KMTextStyle.notoSerif(size: 14),
             ),
             Text('MINAMI KYOHEI',
