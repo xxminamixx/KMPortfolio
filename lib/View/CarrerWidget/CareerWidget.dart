@@ -28,17 +28,24 @@ class CareerWidget extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
           child: Container(
-              width: Screen.size?.width,
-              margin: const EdgeInsets.all(16),
-              child: Column(
-                children: <Widget>[
-                  Text(
-                    'Career',
-                    style: KMTextStyle.notoSerif(size: 36),
-                  ),
-                  _stepper()
-                ],
-              ))),
+              margin: const EdgeInsets.all(64),
+              child: Center(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Container(
+                      margin: const EdgeInsets.only(bottom: 64),
+                      child: Text(
+                        'Career',
+                        style: KMTextStyle.notoSerif(size: 36),
+                      ),
+                    ),
+                    _stepper()
+                  ],
+                ),
+              ),
+          ),
+      ),
     );
   }
 

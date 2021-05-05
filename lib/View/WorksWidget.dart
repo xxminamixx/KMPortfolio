@@ -14,46 +14,51 @@ class WorksWidget extends StatelessWidget {
   Widget _mainWidget() {
     return Scaffold(
       body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            children: <Widget>[
-              Container(
-                margin: const EdgeInsets.all(16),
-                child: Text(
-                  'Works',
-                  style: KMTextStyle.notoSerif(
-                    size: 36,
+        child: Container(
+          margin: const EdgeInsets.all(64),
+          child: Center(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  // margin: const EdgeInsets.all(16),
+                  margin: const EdgeInsets.only(bottom: 64),
+                  child: Text(
+                    'Works',
+                    style: KMTextStyle.notoSerif(
+                      size: 36,
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                constraints: BoxConstraints(
+                Container(
+                  constraints: BoxConstraints(
                     maxWidth: _maxWidth(),
+                  ),
+                  child: GridView.count(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    crossAxisCount: isGreaterThanAreaValue() ? 3 : 2,
+                    childAspectRatio: 1.0,
+                    crossAxisSpacing: 32,
+                    mainAxisSpacing: 32,
+                    children: <Widget>[
+                      _cell(
+                          title: '文字数カウンタ',
+                          description: '文字数を数える機能を提供するWebサイト',
+                          url: 'https://kmcharactercount.web.app/#/'),
+                      _cell(
+                          title: 'めがほん',
+                          description: 'スプラトゥーン2 専用情報共有iOSアプリ',
+                          url: 'https://apps.apple.com/be/app/id1268228235'),
+                      _cell(
+                          title: 'しょうゆ',
+                          description: '短縮URLを生成できるiOSアプリ',
+                          url: 'https://apps.apple.com/us/app/id1486190198'),
+                    ],
+                  ),
                 ),
-                child: GridView.count(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  crossAxisCount: isGreaterThanAreaValue() ? 3 : 2,
-                  childAspectRatio: 1.0,
-                  crossAxisSpacing: 32,
-                  mainAxisSpacing: 32,
-                  children: <Widget>[
-                    _cell(
-                        title: '文字数カウンタ',
-                        description: '文字数を数える機能を提供するWebサイト',
-                        url: 'https://kmcharactercount.web.app/#/'),
-                    _cell(
-                        title: 'めがほん',
-                        description: 'スプラトゥーン2 専用情報共有iOSアプリ',
-                        url: 'https://apps.apple.com/be/app/id1268228235'),
-                    _cell(
-                        title: 'しょうゆ',
-                        description: '短縮URLを生成できるiOSアプリ',
-                        url: 'https://apps.apple.com/us/app/id1486190198'),
-                  ],
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
