@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:km_portfolio/Utility/Const.dart';
 import 'package:km_portfolio/Utility/KMTextStyle.dart';
@@ -32,18 +33,21 @@ class ProfileWidget extends StatelessWidget {
                       width: 100,
                       height: 100,
                       child: ClipOval(
-                          child: Image.asset('assets/images/icon.png')
+                          child: CachedNetworkImage(
+                            imageUrl: url.profileIcon,
+                            placeholder: (BuildContext context, String url) => const CircularProgressIndicator(),
+                            errorWidget: (BuildContext context, String url, dynamic error) {
+                              print(error);
+                              return const Icon(Icons.error);
+                            },
+                          ),
                       ),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50.0),
-                        boxShadow: <BoxShadow> [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 0,
-                            blurRadius: 4,
-                            offset: const Offset(0, 2),
-                          ),
-                        ],
+                        border: Border.all(
+                          color: Colors.grey,
+                        ),
+                        color: Colors.grey,
                       ),
                     ),
                   ),
@@ -55,7 +59,7 @@ class ProfileWidget extends StatelessWidget {
                         children: <Widget> [
                           _pairedText(title: '名前', content: '南 京兵 (みなみ きょうへい)'),
                           _pairedText(title: '居住', content: '東京都 / 神奈川県'),
-                          _pairedText(title: '趣味', content: 'ゲーム / アニメ / 美味しいものを食べる'),
+                          _pairedText(title: '趣味', content: 'ゲーム / アニメ / ごはん'),
                         ],
                       )
                   ),

@@ -1,14 +1,14 @@
 // MARK: StringResources
 
 final RouteName route = RouteName();
+final URL url = URL();
 
 const String profileCareer =
 '''
 公立はこだて未来大学で情報デザインを専攻、
 UI/UX のアウトプット手段としてプログラミングを利用することが多かった背景からプログラマの道へ。
-新卒で入社したSIer企業にて大手サービス企業のiOS案件に配属される。
-Objective-C, Swift でのチームアプリ開発を経て、ひとりでiOSに関する一通りの実装ができるまで成長。
-転職の後、iOS/Android アプリの開発を一挙に任されるようになり、Kotlin, Dart も誠意学習中。
+Objective-C, Swift, Kotlin, Dart(Flutter) を利用した iOS/Android アプリのリリースを経験。
+要件定義/設計/デザイン/実装/リリース/分析 を一貫して経験。
 ''';
 
 const String profileCareerEn =
@@ -40,4 +40,8 @@ class RouteName {
   final String works = '/works';
   final String skills = '/skills';
   final String contact = '/contact';
+}
+
+class URL {
+  final String profileIcon = 'https://firebasestorage.googleapis.com/v0/b/kmportfolio-701d8.appspot.com/o/images%2FIcon.png?alt=media&token=3852f09c-5417-4022-ac4c-5ea1e74e5b04';
 }
