@@ -116,3 +116,6 @@ coverage/
 !/dev/ci/**/Gemfile.lock
 app.aab
 .firebaserc
+
+# FVM Version Cache
+.fvm/
