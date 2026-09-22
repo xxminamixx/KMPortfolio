@@ -70,7 +70,7 @@ class HomeWidget extends StatelessWidget {
     );
   }
 
-  Widget linkButton({@required String? text, @required String? url}) {
+  Widget linkButton({required String? text, required String? url}) {
     return Column(
       children: <Widget>[
         ClipOval(
@@ -97,30 +97,6 @@ class HomeWidget extends StatelessWidget {
           style: KMTextStyle.notoSerif(size: 12),
         ),
       ],
-    );
-  }
-
-  Widget twitterIconButton() {
-    return GestureDetector(
-      onTap: () {
-        URLLauncher.open('https://twitter.com/xxmmminminmmxx');
-      },
-      child: Column(
-        children: <Widget>[
-          ClipOval(
-            child: Image.asset(
-              'images/Twitter_Logo_WhiteOnImage.png',
-              width: 36,
-              height: 36,
-              color: Colors.grey,
-            ),
-          ),
-          Text(
-            'Twitter',
-            style: KMTextStyle.notoSerif(size: 12),
-          )
-        ],
-      ),
     );
   }
 }
