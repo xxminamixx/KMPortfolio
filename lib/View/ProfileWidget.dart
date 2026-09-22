@@ -96,8 +96,8 @@ class ProfileWidget extends StatelessWidget {
   }
 
   Widget _pairedText({
-    @required String? title,
-    @required String? content,
+    required String? title,
+    required String? content,
   }) {
     return Wrap(
       direction: Axis.horizontal,

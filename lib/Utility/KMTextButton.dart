@@ -5,8 +5,8 @@ class KMTextButton extends StatelessWidget {
 
   const KMTextButton({
     Key? key,
-    @required this.text,
-    @required this.onTapped,
+    required this.text,
+    required this.onTapped,
     this.fontSize,
   }) : super(key: key);
 

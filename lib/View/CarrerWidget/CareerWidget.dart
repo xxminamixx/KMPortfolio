@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:km_portfolio/Utility/Const.dart';
 import 'package:km_portfolio/Utility/KMTextStyle.dart';
-import 'package:km_portfolio/Utility/Screen.dart';
 import 'package:km_portfolio/View/CarrerWidget/CareerBloc.dart';
 import 'package:km_portfolio/View/CarrerWidget/CareerBlocProvider.dart';
 
@@ -55,8 +54,7 @@ class CareerWidget extends StatelessWidget {
       builder: (BuildContext context, AsyncSnapshot<int> snapshot) {
         return Stepper(
           physics: const ClampingScrollPhysics(),
-          controlsBuilder: (BuildContext context,
-              {VoidCallback? onStepContinue, VoidCallback? onStepCancel}) {
+          controlsBuilder: (BuildContext context, ControlsDetails details) {
             return Row(
               children: <Widget>[
                 Container(
@@ -188,11 +186,11 @@ class CareerWidget extends StatelessWidget {
   }
 
   Widget _proposition(
-      {@required String? title,
-      @required String? occupation,
-      @required String? teamSize,
-      @required String? description,
-      @required List<String>? skills}) {
+      {required String? title,
+      required String? occupation,
+      required String? teamSize,
+      required String? description,
+      required List<String>? skills}) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -229,8 +227,8 @@ class CareerWidget extends StatelessWidget {
   }
 
   Widget _cell({
-    @required String? title,
-    @required String? content,
+    required String? title,
+    required String? content,
   }) {
     return Container(
         margin: const EdgeInsets.only(bottom: 8),
