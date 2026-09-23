@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:km_portfolio/Utility/Const.dart';
-import 'package:km_portfolio/Utility/KMTextStyle.dart';
+import 'package:km_portfolio/core/constants/assets.dart';
+import 'package:km_portfolio/core/theme/app_text_style.dart';
+import 'package:km_portfolio/features/profile/data/profile_content.dart';
+import 'package:km_portfolio/features/profile/domain/profile.dart';
 
-class ProfileWidget extends StatelessWidget {
+class ProfileScreen extends StatelessWidget {
 
-  const ProfileWidget({Key? key}) : super(key: key);
+  const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class ProfileWidget extends StatelessWidget {
                   Container(
                     margin: const EdgeInsets.only(bottom: 64),
                     child: Text('Profile',
-                      style: KMTextStyle.notoSerif(size: 36),
+                      style: AppTextStyle.notoSerif(size: 36),
                     ),
                   ),
                   Container(
@@ -31,12 +33,6 @@ class ProfileWidget extends StatelessWidget {
                     child: Container(
                       width: 100,
                       height: 100,
-                      child: ClipOval(
-                          child: Image.asset(
-                            asset.profileIcon,
-                            fit: BoxFit.cover,
-                          ),
-                      ),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50.0),
                         border: Border.all(
@@ -44,6 +40,12 @@ class ProfileWidget extends StatelessWidget {
                         ),
                         color: Colors.grey,
                       ),
+                      child: ClipOval(
+                          child: Image.asset(
+                            asset.profileIcon,
+                            fit: BoxFit.cover,
+                          ),
+                      ),
                     ),
                   ),
                   Container(
@@ -51,20 +53,18 @@ class ProfileWidget extends StatelessWidget {
                       child: Wrap(
                         direction: Axis.vertical,
                         spacing: 8,
-                        children: <Widget> [
-                          _pairedText(title: '名前', content: '南 京兵 (みなみ きょうへい)'),
-                          _pairedText(title: '居住', content: '東京都 / 神奈川県'),
-                          _pairedText(title: '趣味', content: 'ゲーム / アニメ / ごはん'),
-                        ],
+                        children: profileContent.japaneseFields
+                            .map(_pairedText)
+                            .toList(),
                       )
                   ),
-                  Text(profileCareer,
-                    style: KMTextStyle.lato(size: 14),
+                  Text(profileContent.japaneseCareer,
+                    style: AppTextStyle.lato(size: 14),
                   ),
                   Container(
                     margin: const  EdgeInsets.only(bottom: 16),
                     child: Text('---',
-                      style: KMTextStyle.lato(size: 14),
+                      style: AppTextStyle.lato(size: 14),
                     ),
                   ),
                   Container(
@@ -72,15 +72,13 @@ class ProfileWidget extends StatelessWidget {
                       child: Wrap(
                         direction: Axis.vertical,
                         spacing: 8,
-                        children: <Widget> [
-                          _pairedText(title: 'Name', content: 'Minami Kyohei'),
-                          _pairedText(title: 'Residence', content: 'Tokyo / Kanagawa'),
-                          _pairedText(title: 'hobby', content: 'Game / Anime / Eat delicious food'),
-                        ],
+                        children: profileContent.englishFields
+                            .map(_pairedText)
+                            .toList(),
                       )
                   ),
-                  Text(profileCareerEn,
-                    style: KMTextStyle.lato(size: 14),
+                  Text(profileContent.englishCareer,
+                    style: AppTextStyle.lato(size: 14),
                   ),
                 ],
               ),
@@ -90,19 +88,16 @@ class ProfileWidget extends StatelessWidget {
     );
   }
 
-  Widget _pairedText({
-    required String? title,
-    required String? content,
-  }) {
+  Widget _pairedText(ProfileField field) {
     return Wrap(
       direction: Axis.horizontal,
       spacing: 16,
       children: <Widget> [
-        Text(title ?? '',
-          style: KMTextStyle.lato(size: 14, isBold: true),
+        Text(field.title,
+          style: AppTextStyle.lato(size: 14, isBold: true),
         ),
-        Text(content ?? '',
-          style: KMTextStyle.lato(size: 14),
+        Text(field.content,
+          style: AppTextStyle.lato(size: 14),
         ),
       ],
     );

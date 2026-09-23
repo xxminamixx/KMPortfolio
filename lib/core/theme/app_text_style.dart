@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class KMTextStyle {
+class AppTextStyle {
 
   static TextStyle notoSerif({
     required double? size,

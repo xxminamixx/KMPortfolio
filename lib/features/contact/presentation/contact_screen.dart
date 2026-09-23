@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:km_portfolio/Utility/KMTextStyle.dart';
+import 'package:km_portfolio/core/theme/app_text_style.dart';
 
-class ContactWidget extends StatelessWidget {
-
-  const ContactWidget({Key? key}) : super(key: key);
+class ContactScreen extends StatelessWidget {
+  const ContactScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return _mainWidget();
-  }
-
-  Widget _mainWidget() {
     return Scaffold(
       body: SingleChildScrollView(
           child: Container(
@@ -19,10 +14,10 @@ class ContactWidget extends StatelessWidget {
                   child: Column(
                     children: <Widget> [
                       Text('Contact',
-                        style: KMTextStyle.notoSerif(size: 36),
+                        style: AppTextStyle.notoSerif(size: 36),
                       ),
                       Text('誠意作成中',
-                        style: KMTextStyle.lato(size: 18),
+                        style: AppTextStyle.lato(size: 18),
                       )
                     ],
                   )
