@@ -78,59 +78,36 @@ class CareerWidget extends StatelessWidget {
   List<Step> _steps(int index) {
     return <Step>[
       Step(
-          title: const Text('公立はこだて未来大学'),
-          subtitle: const Text('2012/04 ~ 2016/03'),
-          isActive: index == 0,
-          content: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              _proposition(
-                  title: 'デザイン・プログラミングの基礎学習',
-                  occupation: '学生',
-                  teamSize: 'なし',
-                  description:
-                      '情報デザインを専攻しUI/UXの基礎を学習。Illustratorを利用し UX Map/Infographics/Pictogram の制作も行った',
-                  skills: <String>[
-                    'Processing',
-                    'Java',
-                    'C',
-                    'HTML',
-                    'CSS',
-                    'javascript',
-                    'Illustrator',
-                    'Blender',
-                  ])
-            ],
-          )),
-      Step(
-          title: const Text('システムアナライズ株式会社'),
-          subtitle: const Text('2016/04 ~ 2018/03'),
-          isActive: index == 1,
-          content: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              _proposition(
-                  title: '不動産情報アプリ開発',
-                  occupation: 'iOS エンジニア',
-                  teamSize: '10 ~ 15人',
-                  description: step2Career,
-                  skills: <String>[
-                    'Swift',
-                    'Objective-C',
-                    'Git',
-                    'Github',
-                    'Jenkins',
-                    'Google Analytics'
-                  ])
-            ],
-          ),
+        title: const Text('株式会社サイバーエージェント 入社'),
+        subtitle: const Text('2021/05 ~'),
+        isActive: index == 0,
+        content: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            _proposition(
+                title: 'Ameba ブログ for iOS',
+                occupation: 'iOS エンジニア / PjM',
+                teamSize: '5 ~ 10人',
+                description:
+                    'ICとしてプロダクト開発をする傍ら、新人の育成やの経験を積む。時にはプロジェクトの進行・管理を行うためプロジェクトマネージャーとしても事業施策を推進。',
+                skills: <String>[
+                  'Swift',
+                  'Github',
+                  'Namespace',
+                  'Firebase',
+                  'TCA(The Composable Architecture)',
+                  'RxSwift',
+                  'XcodeGen',
+                  'Swift Package Manager',
+                ]),
+          ],
+        ),
       ),
       Step(
           title: const Text('meuron株式会社'),
           subtitle: const Text('2018/04 ~ 2021/04'),
-          isActive: index == 2,
+          isActive: index == 1,
           content: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -173,15 +150,55 @@ class CareerWidget extends StatelessWidget {
           ),
       ),
       Step(
-        title: const Text('株式会社サイバーエージェント 入社'),
-        subtitle: const Text('2021/05 ~'),
-        isActive: index == 3,
-        content: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: const <Widget>[],
-        ),
+          title: const Text('システムアナライズ株式会社'),
+          subtitle: const Text('2016/04 ~ 2018/03'),
+          isActive: index == 2,
+          content: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              _proposition(
+                  title: '不動産情報アプリ開発',
+                  occupation: 'iOS エンジニア',
+                  teamSize: '10 ~ 15人',
+                  description: step2Career,
+                  skills: <String>[
+                    'Swift',
+                    'Objective-C',
+                    'Git',
+                    'Github',
+                    'Jenkins',
+                    'Google Analytics'
+                  ])
+            ],
+          ),
       ),
+      Step(
+          title: const Text('公立はこだて未来大学'),
+          subtitle: const Text('2012/04 ~ 2016/03'),
+          isActive: index == 3,
+          content: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              _proposition(
+                  title: 'デザイン・プログラミングの基礎学習',
+                  occupation: '学生',
+                  teamSize: 'なし',
+                  description:
+                      '情報デザインを専攻しUI/UXの基礎を学習。Illustratorを利用し UX Map/Infographics/Pictogram の制作も行った',
+                  skills: <String>[
+                    'Processing',
+                    'Java',
+                    'C',
+                    'HTML',
+                    'CSS',
+                    'javascript',
+                    'Illustrator',
+                    'Blender',
+                  ])
+            ],
+          )),
     ];
   }
 
