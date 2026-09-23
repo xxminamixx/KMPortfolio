@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:km_portfolio/Utility/Const.dart';
 import 'package:km_portfolio/Utility/KMTextStyle.dart';
@@ -33,13 +32,9 @@ class ProfileWidget extends StatelessWidget {
                       width: 100,
                       height: 100,
                       child: ClipOval(
-                          child: CachedNetworkImage(
-                            imageUrl: url.profileIcon,
-                            placeholder: (BuildContext context, String url) => const CircularProgressIndicator(),
-                            errorWidget: (BuildContext context, String url, dynamic error) {
-                              print(error);
-                              return const Icon(Icons.error);
-                            },
+                          child: Image.asset(
+                            asset.profileIcon,
+                            fit: BoxFit.cover,
                           ),
                       ),
                       decoration: BoxDecoration(

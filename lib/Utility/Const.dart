@@ -1,7 +1,7 @@
 // MARK: StringResources
 
 final RouteName route = RouteName();
-final URL url = URL();
+final Asset asset = Asset();
 
 const String profileCareer =
 '''
@@ -42,6 +42,6 @@ class RouteName {
   final String contact = '/contact';
 }
 
-class URL {
-  final String profileIcon = 'https://firebasestorage.googleapis.com/v0/b/kmportfolio-701d8.appspot.com/o/images%2FIcon.png?alt=media&token=3852f09c-5417-4022-ac4c-5ea1e74e5b04';
+class Asset {
+  final String profileIcon = 'assets/images/profile_icon.jpg';
 }
