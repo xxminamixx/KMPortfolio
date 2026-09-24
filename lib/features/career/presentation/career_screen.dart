@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:km_portfolio/core/theme/app_text_style.dart';
 import 'package:km_portfolio/features/career/application/career_step_provider.dart';
-import 'package:km_portfolio/features/career/data/career_data.dart';
 import 'package:km_portfolio/features/career/domain/career_step.dart';
 import 'package:km_portfolio/features/career/presentation/widgets/career_proposition.dart';
 
@@ -40,6 +39,16 @@ class CareerScreen extends ConsumerWidget {
   }
 
   Widget _stepper(WidgetRef ref) {
+    final AsyncValue<List<CareerStep>> careerSteps = ref.watch(careerStepsProvider);
+
+    return careerSteps.when(
+      loading: () => const Center(child: CircularProgressIndicator()),
+      error: (Object error, StackTrace stackTrace) => Center(child: Text('$error')),
+      data: (List<CareerStep> steps) => _stepperContent(ref, steps),
+    );
+  }
+
+  Widget _stepperContent(WidgetRef ref, List<CareerStep> steps) {
     final int currentStep = ref.watch(careerStepProvider);
 
     return Stepper(
@@ -51,8 +60,8 @@ class CareerScreen extends ConsumerWidget {
       onStepTapped: (int step) => ref.read(careerStepProvider.notifier).state = step,
       type: StepperType.vertical,
       steps: <Step>[
-        for (int index = 0; index < careerSteps.length; index++)
-          _step(careerSteps[index], isActive: index == currentStep),
+        for (int index = 0; index < steps.length; index++)
+          _step(steps[index], isActive: index == currentStep),
       ],
     );
   }
