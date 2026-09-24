@@ -71,21 +71,24 @@ class CareerScreen extends ConsumerWidget {
       title: Text(step.title),
       subtitle: Text(step.subtitle),
       isActive: isActive,
-      content: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          for (int index = 0; index < step.propositions.length; index++) ...<Widget>[
-            if (index > 0)
-              Container(
-                height: 0.5,
-                width: 60,
-                color: Colors.grey,
-                margin: const EdgeInsets.only(top: 32, bottom: 32),
-              ),
-            CareerPropositionView(proposition: step.propositions[index]),
+      content: SizedBox(
+        width: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            for (int index = 0; index < step.propositions.length; index++) ...<Widget>[
+              if (index > 0)
+                Container(
+                  height: 0.5,
+                  width: 60,
+                  color: Colors.grey,
+                  margin: const EdgeInsets.only(top: 32, bottom: 32),
+                ),
+              CareerPropositionView(proposition: step.propositions[index]),
+            ],
           ],
-        ],
+        ),
       ),
     );
   }
