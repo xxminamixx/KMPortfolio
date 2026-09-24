@@ -9,6 +9,5 @@ void main() {
     expect(find.text('MINAMI KYOHEI'), findsOneWidget);
     expect(find.text('Profile'), findsOneWidget);
     expect(find.text('Career'), findsOneWidget);
-    expect(find.text('Works'), findsOneWidget);
   });
 }

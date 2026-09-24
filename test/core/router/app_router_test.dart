@@ -8,7 +8,6 @@ void main() {
     AppRoute.root,
     AppRoute.profile,
     AppRoute.career,
-    AppRoute.works,
     AppRoute.skills,
     AppRoute.contact,
   ]) {
