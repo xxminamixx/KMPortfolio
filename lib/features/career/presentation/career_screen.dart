@@ -5,50 +5,58 @@ import 'package:km_portfolio/features/career/application/career_step_provider.da
 import 'package:km_portfolio/features/career/domain/career_step.dart';
 import 'package:km_portfolio/features/career/presentation/widgets/career_proposition.dart';
 
-class CareerScreen extends ConsumerWidget {
+class CareerScreen extends StatelessWidget {
   const CareerScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return _mainWidget(ref);
-  }
-
-  Widget _mainWidget(WidgetRef ref) {
+  Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-          child: Container(
-              margin: const EdgeInsets.all(64),
-              child: Center(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Container(
-                      margin: const EdgeInsets.only(bottom: 64),
-                      child: Text(
-                        'Career',
-                        style: AppTextStyle.notoSerif(size: 36),
-                      ),
-                    ),
-                    _stepper(ref)
-                  ],
+        child: Container(
+          margin: const EdgeInsets.all(64),
+          child: Center(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  margin: const EdgeInsets.only(bottom: 64),
+                  child: Text(
+                    'Career',
+                    style: AppTextStyle.notoSerif(size: 36),
+                  ),
                 ),
-              ),
+                const _CareerStepper(),
+              ],
+            ),
           ),
+        ),
       ),
     );
   }
+}
 
-  Widget _stepper(WidgetRef ref) {
+class _CareerStepper extends ConsumerWidget {
+  const _CareerStepper();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
     final AsyncValue<List<CareerStep>> careerSteps = ref.watch(careerStepsProvider);
 
     return careerSteps.when(
       loading: () => const Center(child: CircularProgressIndicator()),
       error: (Object error, StackTrace stackTrace) => Center(child: Text('$error')),
-      data: (List<CareerStep> steps) => _stepperContent(ref, steps),
+      data: (List<CareerStep> steps) => _CareerStepperContent(steps: steps),
     );
   }
+}
 
-  Widget _stepperContent(WidgetRef ref, List<CareerStep> steps) {
+class _CareerStepperContent extends ConsumerWidget {
+  const _CareerStepperContent({required this.steps});
+
+  final List<CareerStep> steps;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
     final int currentStep = ref.watch(careerStepProvider);
 
     return Stepper(
