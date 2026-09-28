@@ -23,7 +23,7 @@ class SocialLinkButton extends StatelessWidget {
                 size: 28,
               ),
               tooltip: text,
-              onPressed: () => URLLauncher.open(url),
+              onPressed: () => _open(context),
             ),
           ),
         ),
@@ -33,5 +33,14 @@ class SocialLinkButton extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  Future<void> _open(BuildContext context) async {
+    final bool succeeded = await URLLauncher.open(url);
+    if (!succeeded && context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('$text を開けませんでした')),
+      );
+    }
   }
 }
