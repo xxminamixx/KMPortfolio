@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:km_portfolio/core/theme/app_text_style.dart';
+import 'package:km_portfolio/core/widgets/responsive_page.dart';
 import 'package:km_portfolio/features/career/application/career_step_provider.dart';
 import 'package:km_portfolio/features/career/domain/career_step.dart';
 import 'package:km_portfolio/features/career/presentation/widgets/career_proposition.dart';
@@ -15,25 +16,20 @@ class CareerScreen extends ConsumerWidget {
 
   Widget _mainWidget(WidgetRef ref) {
     return Scaffold(
-      body: SingleChildScrollView(
-          child: Container(
-              margin: const EdgeInsets.all(64),
-              child: Center(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Container(
-                      margin: const EdgeInsets.only(bottom: 64),
-                      child: Text(
-                        'Career',
-                        style: AppTextStyle.notoSerif(size: 36),
-                      ),
-                    ),
-                    _stepper(ref)
-                  ],
-                ),
+      body: ResponsivePage(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Container(
+              margin: const EdgeInsets.only(bottom: 64),
+              child: Text(
+                'Career',
+                style: AppTextStyle.notoSerif(size: 36),
               ),
-          ),
+            ),
+            _stepper(ref)
+          ],
+        ),
       ),
     );
   }
