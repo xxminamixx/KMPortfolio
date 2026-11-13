@@ -51,12 +51,12 @@ class HomeScreen extends StatelessWidget {
                   AppTextButton(
                       text: 'Profile',
                       onTapped: () {
-                        context.push(AppRoute.profile);
+                        context.go(AppRoute.profile);
                       }),
                   AppTextButton(
                       text: 'Career',
                       onTapped: () {
-                        context.push(AppRoute.career);
+                        context.go(AppRoute.career);
                       }),
                   // AppTextButton(text: 'Skills', onTapped: () { context.push(AppRoute.skills); }),
                   // AppTextButton(text: 'Contact', onTapped: () { context.push(AppRoute.contact); }),
