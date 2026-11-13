@@ -1,8 +1,25 @@
 [
   {
-    "title": "株式会社サマリー 入社",
+    "title": "株式会社サマリー",
     "subtitle": "2026/11 ~",
-    "propositions": []
+    "propositions": [
+      {
+        "title": "サマリーポケット for iOS / Android",
+        "occupation": "iOS / Android エンジニア",
+        "teamSize": "5 ~ 10人",
+        "description": "",
+        "skills": [
+          "Swift",
+          "Github",
+          "Bitrise",
+          "Firebase",
+          "TCA(The Composable Architecture)",
+          "RxSwift",
+          "XcodeGen",
+          "Swift Package Manager"
+        ]
+      }
+    ]
   },
   {
     "title": "株式会社サイバーエージェント",
